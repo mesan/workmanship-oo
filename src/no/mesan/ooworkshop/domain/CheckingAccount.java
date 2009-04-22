@@ -13,8 +13,6 @@ public class CheckingAccount implements Account {
 			throw new IllegalArgumentException();
 		}
 		
-		// lalal
-		
 		this.accountNumber = accountNumber;
 		this.amount = initialAmount;
 		this.creditLimit = creditLimit;
