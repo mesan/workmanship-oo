@@ -59,5 +59,4 @@ public class Customer {
 	public void setTown(String town) {
 		this.town = town;
 	}
-
 }
