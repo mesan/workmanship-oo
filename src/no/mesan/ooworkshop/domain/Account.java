@@ -5,5 +5,4 @@ public interface Account {
 	public Customer getAccountOwner();
 	public Double getAmount();
 	public void setAmount(Double amount);
-	
 }
