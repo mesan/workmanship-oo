@@ -1,3 +1,4 @@
 h1. Workmanship Workshop
 
 Kodebase for demobasert workshop som skal brukes i workshop om Software Craftmanship og Workmanship i Mesan
+
