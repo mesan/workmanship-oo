@@ -13,7 +13,8 @@ public class TransferServiceTest {
 	@Test
 	public void testTransfer() {
 		Double initialFromAmount = Double.valueOf(1000);
-		Double initialToAmount = Double.valueOf(0);
+		Double initialToAmount = Double.valueOf(500);
+		Double amount = Double.valueOf(10);
 		
 		Account fromAccount = new SavingsAccount(36241604394L, initialFromAmount, new Customer());
 		Account toAccount = new SavingsAccount(36241604394L, initialToAmount, new Customer());
@@ -21,12 +22,12 @@ public class TransferServiceTest {
 		TransferService service = new TransferService(fromAccount, toAccount);
 		
 		try {
-			service.transfer(initialFromAmount);
+			service.transfer(amount);
 		} catch (InnsufficientFundsException e) {
 			fail("Should not throw an exception");
 		}
 		
-		assertEquals(initialFromAmount, toAccount.getAmount());
-		assertEquals(initialToAmount, fromAccount.getAmount());
+		assertEquals(initialFromAmount - amount - TransferService.FEE, fromAccount.getAmount());
+		assertEquals(initialToAmount + amount, toAccount.getAmount());
 	}
 }
