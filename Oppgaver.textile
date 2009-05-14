@@ -5,7 +5,7 @@ h1. Oppgaver
 #* Legge til withdrawal og deposit i Account-klassen
 
 # Logikk som plasseres utenfor domeneklasser
-#* Flytte logikk som hï¿½ndterer overtrekk av konto fra service til Account-klasse
+#* Flytte logikk som håndterer overtrekk av konto fra service til Account-klasse
 
 # Manglende bruk av valueobjects. + primitive obsession
 #* Opprette AccountNumber-klasse (Har laget en primitiv kontonummervalidator i AccountNumberUtil)
