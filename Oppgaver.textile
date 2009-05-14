@@ -1,0 +1,20 @@
+h1. Oppgaver
+
+# Eksponering av intern tilstand gjennom settere
+#* Fjerne setAmount fra Account-klassen
+#* Legge til withdrawal og deposit i Account-klassen
+
+# Logikk som plasseres utenfor domeneklasser
+#* Flytte logikk som håndterer overtrekk av konto fra service til Account-klasse
+
+# Manglende bruk av valueobjects. + primitive obsession
+#* Opprette AccountNumber-klasse (Har laget en primitiv kontonummervalidator i AccountNumberUtil)
+#* Evt opprette Money-klasse om ikke dette blir for omfattende i en kort workshop.
+#* Har laget en Customer-klasse med personnummer og adresse som også kan brukes til å illustrere dette poenget.
+
+# Noe rundt interface vs superklasse
+#* Kan bruke nye kontotyper eller bedriftskunde
+#* Bør belyse at arv kun bør brukes ved ISA-relationships på OPPFØRSELS-nivå
+
+# Noe rundt 'S' i SOLID - Single responsibility
+#* Ingen gode eksempler i koden nå. Men et typisk problem slik jeg ser det.
