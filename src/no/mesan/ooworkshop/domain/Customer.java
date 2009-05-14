@@ -3,65 +3,65 @@ package no.mesan.ooworkshop.domain;
 import no.mesan.ooworkshop.util.AccountUtil;
 
 public class Customer {
-	private Long socialSecurityNumber;
-	
-	private String name;
-	private String streetName;
-	private Integer streetNumber;
-	private Integer postalCode;
-	private String town;
-	
-	public Customer() {
-	}
+    private Long socialSecurityNumber;
 
-	public Long getSocialSecurityNumber() {
-		return socialSecurityNumber;
-	}
+    private String name;
+    private String streetName;
+    private Integer streetNumber;
+    private Integer postalCode;
+    private String town;
 
-	public void setSocialSecurityNumber(Long socialSecurityNumber) {
-		if(socialSecurityNumber != null && !AccountUtil.gyldigFnr(socialSecurityNumber.toString())) {
-			throw new IllegalArgumentException();
-		}
-		this.socialSecurityNumber = socialSecurityNumber;
-	}
+    public Customer() {
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Long getSocialSecurityNumber() {
+        return socialSecurityNumber;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setSocialSecurityNumber(Long socialSecurityNumber) {
+        if (socialSecurityNumber != null && !AccountUtil.gyldigFnr(socialSecurityNumber.toString())) {
+            throw new IllegalArgumentException();
+        }
+        this.socialSecurityNumber = socialSecurityNumber;
+    }
 
-	public String getStreetName() {
-		return streetName;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Integer getStreetNumber() {
-		return streetNumber;
-	}
+    public String getStreetName() {
+        return streetName;
+    }
 
-	public void setStreetNumber(Integer streetNumber) {
-		this.streetNumber = streetNumber;
-	}
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
 
-	public Integer getPostalCode() {
-		return postalCode;
-	}
+    public Integer getStreetNumber() {
+        return streetNumber;
+    }
 
-	public void setPostalCode(Integer postalCode) {
-		this.postalCode = postalCode;
-	}
+    public void setStreetNumber(Integer streetNumber) {
+        this.streetNumber = streetNumber;
+    }
 
-	public String getTown() {
-		return town;
-	}
+    public Integer getPostalCode() {
+        return postalCode;
+    }
 
-	public void setTown(String town) {
-		this.town = town;
-	}
+    public void setPostalCode(Integer postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
 }

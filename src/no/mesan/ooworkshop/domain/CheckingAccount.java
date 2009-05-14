@@ -3,43 +3,43 @@ package no.mesan.ooworkshop.domain;
 import no.mesan.ooworkshop.util.AccountUtil;
 
 public class CheckingAccount implements Account {
-	private long accountNumber;
-	private Double amount;
-	private Double creditLimit;
-	private Customer accountOwner;
-	
-	public CheckingAccount(long accountNumber, Double initialAmount, Double creditLimit, Customer accountOwner) {
-		if(!AccountUtil.validAccountNumber(accountNumber)) {
-			throw new IllegalArgumentException();
-		}
-		
-		this.accountNumber = accountNumber;
-		this.amount = initialAmount;
-		this.creditLimit = creditLimit;
-		this.accountOwner = accountOwner;
-	}
-	
-	public Double getCreditLimit() {
-		return creditLimit;
-	}
-	
-	@Override
-	public long getAccountNumber() {
-		return accountNumber;
-	}
+    private long accountNumber;
+    private Double amount;
+    private Double creditLimit;
+    private Customer accountOwner;
 
-	@Override
-	public Customer getAccountOwner() {
-		return accountOwner;
-	}
+    public CheckingAccount(long accountNumber, Double initialAmount, Double creditLimit, Customer accountOwner) {
+        if (!AccountUtil.validAccountNumber(accountNumber)) {
+            throw new IllegalArgumentException();
+        }
 
-	@Override
-	public Double getAmount() {
-		return amount;
-	}
+        this.accountNumber = accountNumber;
+        this.amount = initialAmount;
+        this.creditLimit = creditLimit;
+        this.accountOwner = accountOwner;
+    }
 
-	@Override
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
+    public Double getCreditLimit() {
+        return creditLimit;
+    }
+
+    @Override
+    public long getAccountNumber() {
+        return accountNumber;
+    }
+
+    @Override
+    public Customer getAccountOwner() {
+        return accountOwner;
+    }
+
+    @Override
+    public Double getAmount() {
+        return amount;
+    }
+
+    @Override
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 }

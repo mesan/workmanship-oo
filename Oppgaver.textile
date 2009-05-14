@@ -9,8 +9,8 @@ h1. Oppgaver
 
 # Manglende bruk av valueobjects. + primitive obsession
 #* Opprette AccountNumber-klasse (Har laget en primitiv kontonummervalidator i AccountNumberUtil)
-#* Evt opprette Money-klasse om ikke dette blir for omfattende i en kort workshop.
 #* Har laget en Customer-klasse med personnummer og adresse som også kan brukes til å illustrere dette poenget.
+#* Evt opprette Money-klasse om ikke dette blir for omfattende i en kort workshop.
 
 # Noe rundt interface vs superklasse
 #* Kan bruke nye kontotyper eller bedriftskunde
