@@ -1,6 +1,6 @@
 package no.mesan.ooworkshop.domain;
 
-import no.mesan.ooworkshop.util.AccountNumberUtil;
+import no.mesan.ooworkshop.util.AccountUtil;
 
 public class CheckingAccount implements Account {
 	private long accountNumber;
@@ -9,7 +9,7 @@ public class CheckingAccount implements Account {
 	private Customer accountOwner;
 	
 	public CheckingAccount(long accountNumber, Double initialAmount, Double creditLimit, Customer accountOwner) {
-		if(!AccountNumberUtil.validAccountNumber(accountNumber)) {
+		if(!AccountUtil.validAccountNumber(accountNumber)) {
 			throw new IllegalArgumentException();
 		}
 		

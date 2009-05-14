@@ -1,5 +1,7 @@
 package no.mesan.ooworkshop.domain;
 
+import no.mesan.ooworkshop.util.AccountUtil;
+
 public class Customer {
 	private Long socialSecurityNumber;
 	
@@ -17,6 +19,9 @@ public class Customer {
 	}
 
 	public void setSocialSecurityNumber(Long socialSecurityNumber) {
+		if(socialSecurityNumber != null && !AccountUtil.gyldigFnr(socialSecurityNumber.toString())) {
+			throw new IllegalArgumentException();
+		}
 		this.socialSecurityNumber = socialSecurityNumber;
 	}
 
