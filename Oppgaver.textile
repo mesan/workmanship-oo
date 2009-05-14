@@ -10,11 +10,11 @@ h1. Oppgaver
 # Manglende bruk av valueobjects. + primitive obsession
 #* Opprette AccountNumber-klasse (Har laget en primitiv kontonummervalidator i AccountNumberUtil)
 #* Evt opprette Money-klasse om ikke dette blir for omfattende i en kort workshop.
-#* Har laget en Customer-klasse med personnummer og adresse som ogsï¿½ kan brukes til ï¿½ illustrere dette poenget.
+#* Har laget en Customer-klasse med personnummer og adresse som også kan brukes til å illustrere dette poenget.
 
 # Noe rundt interface vs superklasse
 #* Kan bruke nye kontotyper eller bedriftskunde
-#* BÃ¸r belyse at arv kun bï¿½r brukes ved ISA-relationships pï¿½ OPPFï¿½RSELS-nivï¿½
+#* Bør belyse at arv kun bør brukes ved ISA-relationships på OPPFØRSELS-nivå
 
 # Noe rundt 'S' i SOLID - Single responsibility
-#* Ingen gode eksempler i koden nï¿½. Men et typisk problem slik jeg ser det.
+#* Ingen gode eksempler i koden nå. Men et typisk problem slik jeg ser det.
