@@ -8,7 +8,10 @@ public class CheckingAccount implements Account {
     private Double creditLimit;
     private Customer accountOwner;
 
-    public CheckingAccount(long accountNumber, Double initialAmount, Double creditLimit, Customer accountOwner) {
+    public CheckingAccount(long accountNumber,
+                           Double initialAmount,
+                           Double creditLimit,
+                           Customer accountOwner) {
         if (!AccountUtil.validAccountNumber(accountNumber)) {
             throw new IllegalArgumentException();
         }
