@@ -11,7 +11,7 @@ import org.junit.Test;
 public class TransferServiceTest {
 
     @Test
-    public void testTransfer() {
+    public void transferWithdrawsAndDeposits() {
         Double initialFromAmount = Double.valueOf(1000);
         Double initialToAmount = Double.valueOf(500);
         Double amount = Double.valueOf(10);

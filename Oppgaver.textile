@@ -46,9 +46,6 @@ sine spesielle behov og sin unike oppførsel.
 
 h2. Single Responsibility Principle
 
-# Noe rundt 'S' i SOLID - Single responsibility
-#* Ingen gode eksempler i koden nå. Men et typisk problem slik jeg ser det.
-
 
 h2. Tall og sånt
 
