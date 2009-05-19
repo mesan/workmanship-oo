@@ -43,10 +43,6 @@ Her er mye av oppførselen lik for flere kontotyper, men er duplisert i flere kl
 La oss innføre en superklasse for kontoer som inneholder felles logikk og lar spesialiseringer håndtere
 sine spesielle behov og sin unike oppførsel.
 
-
-h2. Single Responsibility Principle
-
-
 h2. Tall og sånt
 
 En klassisk problemstilling i datasystemer er håndtering av tall som har en semantikk utover tallverdien

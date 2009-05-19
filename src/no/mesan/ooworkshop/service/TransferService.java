@@ -5,7 +5,6 @@ import no.mesan.ooworkshop.domain.CheckingAccount;
 import no.mesan.ooworkshop.exception.InnsufficientFundsException;
 
 public class TransferService {
-    public static final double FEE = 5;
 
     private Account fromAccount;
     private Account toAccount;
@@ -26,26 +25,19 @@ public class TransferService {
             throw new IllegalArgumentException();
         }
 
-        Double fromAmount = addTransferFeeToAmount(amount);
-        Double toAmount = amount;
-
         if (fromAccount instanceof CheckingAccount) {
             CheckingAccount checkingAccount = (CheckingAccount) fromAccount;
 
-            if (checkingAccount.getAmount() + checkingAccount.getCreditLimit() < fromAmount) {
+            if (checkingAccount.getAmount() + checkingAccount.getCreditLimit() < amount) {
                 throw new InnsufficientFundsException();
             }
         } else {
-            if (fromAccount.getAmount() < fromAmount) {
+            if (fromAccount.getAmount() < amount) {
                 throw new InnsufficientFundsException();
             }
         }
 
-        fromAccount.setAmount(fromAccount.getAmount() - fromAmount);
-        toAccount.setAmount(toAccount.getAmount() + toAmount);
-    }
-
-    private Double addTransferFeeToAmount(Double amount) {
-        return amount + FEE;
+        fromAccount.setAmount(fromAccount.getAmount() - amount);
+        toAccount.setAmount(toAccount.getAmount() + amount);
     }
 }

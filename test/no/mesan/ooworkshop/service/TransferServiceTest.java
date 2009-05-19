@@ -27,7 +27,7 @@ public class TransferServiceTest {
             fail("Should not throw an exception");
         }
 
-        assertEquals(initialFromAmount - amount - TransferService.FEE, fromAccount.getAmount());
+        assertEquals(initialFromAmount - amount, fromAccount.getAmount());
         assertEquals(initialToAmount + amount, toAccount.getAmount());
     }
 }
