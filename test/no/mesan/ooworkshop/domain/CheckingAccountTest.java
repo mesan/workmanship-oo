@@ -3,6 +3,8 @@ package no.mesan.ooworkshop.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
+import no.mesan.ooworkshop.exception.InnsufficientFundsException;
+
 import org.junit.Test;
 
 public class CheckingAccountTest {
@@ -25,5 +27,34 @@ public class CheckingAccountTest {
     @Test(expected = IllegalArgumentException.class)
     public void newAccountShouldNotAcceptInvalidAccountNumber() throws Exception {
         new CheckingAccount(invalidAccountNumber, 0.0, 100.0, customer);
+    }
+    
+    @Test
+    public void depositShouldAddAmount() throws Exception {
+        CheckingAccount account = new CheckingAccount(36241604394L, 100.0, 50.0, new Customer());
+        account.deposit(100.0);
+        
+        assertEquals(200.0, account.getAmount());
+    }
+    
+    @Test
+    public void withdrawRemovesMoney() throws Exception {
+        CheckingAccount account = new CheckingAccount(36241604394L, 100.0, 50.0, new Customer());
+        account.withdraw(50.0);
+        
+        assertEquals(50.0, account.getAmount());
+    }
+    
+    @Test
+    public void withdrawAllowsMoreThanCurrentAmountForCheckingAccount() throws Exception {
+        CheckingAccount account = new CheckingAccount(36241604394L, 100.0, 70.0, new Customer());
+        account.withdraw(150.0);
+        assertEquals(-50.0, account.getAmount());
+    }
+    
+    @Test(expected=InnsufficientFundsException.class)
+    public void withdrawDoesNotOwerdrawAmountPlusCredit() throws Exception {
+        CheckingAccount account = new CheckingAccount(36241604394L, 100.0, 70.0, new Customer());
+        account.withdraw(180.0);
     }
 }

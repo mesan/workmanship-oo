@@ -1,5 +1,6 @@
 package no.mesan.ooworkshop.domain;
 
+import no.mesan.ooworkshop.exception.InnsufficientFundsException;
 import no.mesan.ooworkshop.util.AccountUtil;
 
 public class SavingsAccount implements Account {
@@ -27,7 +28,6 @@ public class SavingsAccount implements Account {
         return amount;
     }
 
-    @Override
     public void setAmount(Double amount) {
         this.amount = amount;
     }
@@ -35,5 +35,18 @@ public class SavingsAccount implements Account {
     @Override
     public Customer getAccountOwner() {
         return accountOwner;
+    }
+    
+    @Override
+    public void deposit(double depositAmount) {
+        amount += depositAmount;
+    }
+    
+    @Override
+    public void withdraw(double withdrawAmount) throws InnsufficientFundsException {
+        if (withdrawAmount > amount) {
+            throw new InnsufficientFundsException();
+        }
+        amount -= withdrawAmount;
     }
 }

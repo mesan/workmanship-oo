@@ -11,23 +11,31 @@ import org.junit.Test;
 public class TransferServiceTest {
 
     @Test
-    public void transferWithdrawsAndDeposits() {
-        Double initialFromAmount = Double.valueOf(1000);
-        Double initialToAmount = Double.valueOf(500);
-        Double amount = Double.valueOf(10);
+    public void transferWithdrawsAndDeposits() throws InnsufficientFundsException {
+        double initialFromAmount = 1000.0;
+        double initialToAmount = 500.0;
+        double amount = 10.0;
 
         Account fromAccount = new SavingsAccount(36241604394L, initialFromAmount, new Customer());
         Account toAccount = new SavingsAccount(36241604394L, initialToAmount, new Customer());
 
         TransferService service = new TransferService(fromAccount, toAccount);
-
-        try {
-            service.transfer(amount);
-        } catch (InnsufficientFundsException e) {
-            fail("Should not throw an exception");
-        }
+        service.transfer(amount);
 
         assertEquals(initialFromAmount - amount, fromAccount.getAmount());
         assertEquals(initialToAmount + amount, toAccount.getAmount());
+    }
+    
+    @Test(expected=InnsufficientFundsException.class)
+    public void transferShouldFailForToLargeWithdraw() throws Exception {
+        double initialFromAmount = 1000.0;
+        double initialToAmount = 500.0;
+        double amount = 1001.0;
+
+        Account fromAccount = new SavingsAccount(36241604394L, initialFromAmount, new Customer());
+        Account toAccount = new SavingsAccount(36241604394L, initialToAmount, new Customer());
+
+        TransferService service = new TransferService(fromAccount, toAccount);
+        service.transfer(amount);
     }
 }
