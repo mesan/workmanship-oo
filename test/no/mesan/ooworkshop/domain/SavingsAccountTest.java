@@ -16,7 +16,7 @@ public class SavingsAccountTest {
         SavingsAccount account = new SavingsAccount(validAccountNumber, 100.0, customer);
 
         assertEquals(36241604394L, account.getAccountNumber());
-        assertEquals(100.0, account.getAmount());
+        assertEquals(100.0, account.getAmount(), 0);
         assertSame(customer, account.getAccountOwner());
     }
 

@@ -17,7 +17,7 @@ public class AccountServiceTest {
         Account account = new SavingsAccount(36241604394L, 100.0, new Customer());
         service.deposit(account, 100.0);
         
-        assertEquals(200.0, account.getAmount());
+        assertEquals(200.0, account.getAmount(), 0);
     }
     
     @Test
@@ -25,7 +25,7 @@ public class AccountServiceTest {
         Account account = new SavingsAccount(36241604394L, 100.0, new Customer());
         service.withdraw(account, 50.0);
         
-        assertEquals(50.0, account.getAmount());
+        assertEquals(50.0, account.getAmount(), 0);
     }
     
     @Test(expected=InnsufficientFundsException.class)
@@ -38,7 +38,7 @@ public class AccountServiceTest {
     public void withdrawAllowsMoreThanCurrentAmountForCheckingAccount() throws Exception {
         Account account = new CheckingAccount(36241604394L, 100.0, 70.0, new Customer());
         service.withdraw(account, 150.0);
-        assertEquals(-50.0, account.getAmount());
+        assertEquals(-50.0, account.getAmount(), 0);
     }
     
     @Test(expected=InnsufficientFundsException.class)
