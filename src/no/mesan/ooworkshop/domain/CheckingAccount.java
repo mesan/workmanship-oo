@@ -46,7 +46,7 @@ public class CheckingAccount implements Account {
     public void deposit(double depositAmount) {
         amount += depositAmount;
     }
-    
+
     @Override
     public void withdraw(double withdrawAmount) throws InnsufficientFundsException {
         if (amount + creditLimit < withdrawAmount) {

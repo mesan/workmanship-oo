@@ -15,7 +15,7 @@ public class TransferService {
 
     /**
      * Cleaned up :)
-     * 
+     *
      * @param amount
      * @throws InnsufficientFundsException
      */

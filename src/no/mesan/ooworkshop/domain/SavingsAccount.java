@@ -36,12 +36,12 @@ public class SavingsAccount implements Account {
     public Customer getAccountOwner() {
         return accountOwner;
     }
-    
+
     @Override
     public void deposit(double depositAmount) {
         amount += depositAmount;
     }
-    
+
     @Override
     public void withdraw(double withdrawAmount) throws InnsufficientFundsException {
         if (withdrawAmount > amount) {

@@ -25,7 +25,7 @@ public class TransferServiceTest {
         assertEquals(initialFromAmount - amount, fromAccount.getAmount());
         assertEquals(initialToAmount + amount, toAccount.getAmount());
     }
-    
+
     @Test(expected=InnsufficientFundsException.class)
     public void transferShouldFailForToLargeWithdraw() throws Exception {
         double initialFromAmount = 1000.0;

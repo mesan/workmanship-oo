@@ -6,12 +6,12 @@ public class AccountUtil {
     /** Lengden på gyldig organisasjonsnummer. */
     public static final int LEN_ORGNR = 9;
 
-    /** Lengden på gyldig fødselsnummer. */
+    /** Lengden på gyldig f.nummer. */
     public static final int LEN_FNR = 11;
 
     /**
      * Sjekker om kontonummer har gyldig format
-     * 
+     *
      * @param accountNumber
      * @return
      */
@@ -45,10 +45,9 @@ public class AccountUtil {
     }
 
     /**
-     * Sjekker om fødselsnummeret har riktig format.
-     * 
-     * @param kundenr
-     *            Fødselsnummer
+     * Sjekker om f.nummeret har riktig format.
+     *
+     * @param kundenr F.nummer
      * @return <code>true</code> hvis gyldig format
      */
     public static boolean gyldigFnr(final String fnrOrg) {
@@ -76,7 +75,7 @@ public class AccountUtil {
             index++;
         }
         final int intverdi2 = Character.digit(fnr.charAt(index), 10); // Siffer 11
-        
+
         final int intmod2 = 11 - (delsum2 % 11);
         return ((intmod2 == intverdi2) || (intmod2 == 11 && intverdi2 == 0));
     }
