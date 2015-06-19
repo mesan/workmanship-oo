@@ -15,7 +15,7 @@ public class Customer {
     }
 
     public Long getSocialSecurityNumber() {
-        return socialSecurityNumber;
+        return this.socialSecurityNumber;
     }
 
     public void setSocialSecurityNumber(Long socialSecurityNumber) {
@@ -26,7 +26,7 @@ public class Customer {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -34,7 +34,7 @@ public class Customer {
     }
 
     public String getStreetName() {
-        return streetName;
+        return this.streetName;
     }
 
     public void setStreetName(String streetName) {
@@ -42,7 +42,7 @@ public class Customer {
     }
 
     public Integer getStreetNumber() {
-        return streetNumber;
+        return this.streetNumber;
     }
 
     public void setStreetNumber(Integer streetNumber) {
@@ -50,7 +50,7 @@ public class Customer {
     }
 
     public Integer getPostalCode() {
-        return postalCode;
+        return this.postalCode;
     }
 
     public void setPostalCode(Integer postalCode) {
@@ -58,7 +58,7 @@ public class Customer {
     }
 
     public String getTown() {
-        return town;
+        return this.town;
     }
 
     public void setTown(String town) {

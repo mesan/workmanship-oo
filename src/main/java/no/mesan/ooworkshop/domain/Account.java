@@ -1,6 +1,6 @@
 package no.mesan.ooworkshop.domain;
 
-import no.mesan.ooworkshop.exception.InnsufficientFundsException;
+import no.mesan.ooworkshop.exception.InsufficientFundsException;
 
 public interface Account {
     long getAccountNumber();
@@ -8,5 +8,5 @@ public interface Account {
     Double getAmount();
 
     void deposit(double depositAmount);
-    void withdraw(double withdrawAmount) throws InnsufficientFundsException;
+    void withdraw(double withdrawAmount) throws InsufficientFundsException;
 }

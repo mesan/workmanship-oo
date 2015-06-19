@@ -1,17 +1,18 @@
-package no.mesan.ooworkshop.service;
+package ooworkshop.service;
 
-import static org.junit.Assert.*;
 import no.mesan.ooworkshop.domain.Account;
 import no.mesan.ooworkshop.domain.Customer;
 import no.mesan.ooworkshop.domain.SavingsAccount;
-import no.mesan.ooworkshop.exception.InnsufficientFundsException;
-
+import no.mesan.ooworkshop.exception.InsufficientFundsException;
+import no.mesan.ooworkshop.service.TransferService;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class TransferServiceTest {
 
     @Test
-    public void transferWithdrawsAndDeposits() throws InnsufficientFundsException {
+    public void transferWithdrawsAndDeposits() throws InsufficientFundsException {
         double initialFromAmount = 1000.0;
         double initialToAmount = 500.0;
         double amount = 10.0;
@@ -22,11 +23,11 @@ public class TransferServiceTest {
         TransferService service = new TransferService(fromAccount, toAccount);
         service.transfer(amount);
 
-        assertEquals(initialFromAmount - amount, fromAccount.getAmount());
-        assertEquals(initialToAmount + amount, toAccount.getAmount());
+        assertEquals(initialFromAmount - amount, fromAccount.getAmount(), 0);
+        assertEquals(initialToAmount + amount, toAccount.getAmount(), 0);
     }
 
-    @Test(expected=InnsufficientFundsException.class)
+    @Test(expected=InsufficientFundsException.class)
     public void transferShouldFailForToLargeWithdraw() throws Exception {
         double initialFromAmount = 1000.0;
         double initialToAmount = 500.0;
