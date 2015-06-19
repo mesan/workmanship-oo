@@ -3,10 +3,10 @@ package no.mesan.ooworkshop.domain;
 import no.mesan.ooworkshop.exception.InsufficientFundsException;
 
 public interface Account {
-    long getAccountNumber();
+    AccountNumber getAccountNumber();
     Customer getAccountOwner();
-    Double getAmount();
+    Money getAmount();
 
-    void deposit(double depositAmount);
-    void withdraw(double withdrawAmount) throws InsufficientFundsException;
+    void deposit(Money depositAmount);
+    void withdraw(Money withdrawAmount) throws InsufficientFundsException;
 }
