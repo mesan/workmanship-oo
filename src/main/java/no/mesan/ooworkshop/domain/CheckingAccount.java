@@ -1,22 +1,48 @@
 package no.mesan.ooworkshop.domain;
 
-public class CheckingAccount extends BaseAccount {
-    private final Money creditLimit;
+import no.mesan.ooworkshop.util.AccountUtil;
 
-    public CheckingAccount(AccountNumber accountNumber,
-                           Money initialAmount,
-                           Money creditLimit,
+public class CheckingAccount implements Account {
+    private long accountNumber;
+    private Double amount;
+    private Double creditLimit;
+    private Customer accountOwner;
+
+    public CheckingAccount(long accountNumber,
+                           Double initialAmount,
+                           Double creditLimit,
                            Customer accountOwner) {
-        super(accountNumber, accountOwner, initialAmount);
+        if (!AccountUtil.validAccountNumber(accountNumber)) {
+            throw new IllegalArgumentException();
+        }
+
+        this.accountNumber = accountNumber;
+        this.amount = initialAmount;
         this.creditLimit = creditLimit;
+        this.accountOwner = accountOwner;
     }
 
-    public Money getCreditLimit() {
-        return this.creditLimit;
+    public Double getCreditLimit() {
+        return creditLimit;
     }
 
     @Override
-    protected Money maxWithdrawAmount() {
-        return getAmount().add(getCreditLimit());
+    public long getAccountNumber() {
+        return accountNumber;
+    }
+
+    @Override
+    public Customer getAccountOwner() {
+        return accountOwner;
+    }
+
+    @Override
+    public Double getAmount() {
+        return amount;
+    }
+
+    @Override
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 }

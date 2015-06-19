@@ -1,13 +1,39 @@
 package no.mesan.ooworkshop.domain;
 
-public class SavingsAccount extends BaseAccount {
+import no.mesan.ooworkshop.util.AccountUtil;
 
-    public SavingsAccount(AccountNumber accountNumber, Money initialAmount, Customer accountOwner) {
-        super(accountNumber, accountOwner, initialAmount);
+public class SavingsAccount implements Account {
+    private long accountNumber;
+    private Double amount;
+    private Customer accountOwner;
+
+    public SavingsAccount(long accountNumber, Double initialAmount, Customer accountOwner) {
+        if (!AccountUtil.validAccountNumber(accountNumber)) {
+            throw new IllegalArgumentException();
+        }
+
+        this.accountNumber = accountNumber;
+        this.amount = initialAmount;
+        this.accountOwner = accountOwner;
     }
 
     @Override
-    protected Money maxWithdrawAmount() {
-        return getAmount();
+    public long getAccountNumber() {
+        return accountNumber;
+    }
+
+    @Override
+    public Double getAmount() {
+        return amount;
+    }
+
+    @Override
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    @Override
+    public Customer getAccountOwner() {
+        return accountOwner;
     }
 }
